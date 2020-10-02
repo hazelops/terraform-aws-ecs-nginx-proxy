@@ -38,6 +38,10 @@ locals {
       {
         sourceVolume  = "nginx-templates",
         containerPath = "/etc/nginx/templates/"
+      },
+      {
+        sourceVolume  = "nginx-app",
+        containerPath = "/app/"
       }
     ] : []
 

@@ -88,6 +88,15 @@ The module mounts two volumes (when `enabled = true`):
 
 The nginx container waits for the application container (`app_name`) to start before launching, using the `dependsOn` mechanism with `START` condition.
 
+## OpenTofu Compatibility
+
+This module is fully compatible with OpenTofu:
+
+- Tested with: OpenTofu 1.11.1
+- Minimum version: OpenTofu >= 1.6.2
+- AWS Provider: 6.x (same as Terraform)
+
+The module works with OpenTofu without any modifications. OpenTofu users can use this module exactly as shown in the examples above.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements

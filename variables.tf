@@ -1,63 +1,79 @@
 variable "env" {
+  description = "Environment name (dev, production)"
+  type        = string
 }
 
 variable "name" {
-  default = "nginx"
+  description = "Container name for the nginx proxy"
+  type        = string
+  default     = "nginx"
 }
 
 variable "app_name" {
-  type = string
+  description = "Application name used for SSM parameter paths and container dependencies"
+  type        = string
 }
 
-
 variable "environment" {
-  type    = map(string)
-  default = {}
+  description = "Environment variables to pass to the container"
+  type        = map(string)
+  default     = {}
 }
 
 variable "secret_names" {
-  type    = list(string)
-  default = []
+  description = "List of additional secret names to load from SSM Parameter Store (PASSWORD is always included)"
+  type        = list(string)
+  default     = []
 }
 
-//variable "ecs_cluster" {
-//  type = string
-//}
-
 variable "docker_image_name" {
-  type    = string
-  default = "nginx"
+  description = "Docker image name for nginx"
+  type        = string
+  default     = "nginx"
 }
 
 variable "docker_image_tag" {
-  type    = string
-  default = "1.19.2-alpine"
+  description = "Docker image tag for nginx"
+  type        = string
+  default     = "stable-alpine"
 }
 
 variable "ecs_launch_type" {
-
+  description = "ECS launch type (FARGATE or EC2)"
+  type        = string
 }
 
 variable "cloudwatch_log_group" {
-  default = ""
+  description = "CloudWatch log group name for container logs (empty string disables CloudWatch logging)"
+  type        = string
+  default     = ""
 }
 
 variable "docker_container_port" {
-  default = 80
+  description = "Port on which the nginx container listens"
+  type        = number
+  default     = 80
 }
 
 variable "ecs_network_mode" {
+  description = "ECS network mode (awsvpc, bridge, or host)"
+  type        = string
 }
 
 variable "resource_requirements" {
-  default = []
+  description = "Resource requirements for Fargate (list of objects with type and value)"
+  type        = list(any)
+  default     = []
 }
 
 variable "docker_memory_reservation" {
-  default = 128
+  description = "Memory reservation for the container in MB"
+  type        = number
+  default     = 128
 }
 
-
 variable "enabled" {
-  default = true
+  description = "Enable or disable the nginx proxy container"
+  type        = bool
+  default     = true
 }

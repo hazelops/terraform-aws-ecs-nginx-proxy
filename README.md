@@ -150,8 +150,3 @@ The module works with OpenTofu without any modifications. OpenTofu users can use
 |------|-------------|
 | <a name="output_container_definition"></a> [container\_definition](#output\_container\_definition) | ECS container definition for the nginx proxy container |
 <!-- END_TF_DOCS -->
-
-## License
-
-Apache 2.0
-
